@@ -1,0 +1,9 @@
+body {
+  padding: 50px;
+  font-family: sans-serif;
+  border: 5px solid black;
+  justify-content: center;
+}
+ToDoItem.div {
+  justify-content: left;
+}
