@@ -2,10 +2,13 @@ import React, {useState} from "react";
 import "./todo.css";
 //import Icon from '@mui/material/Icon';
 //import DeleteIcon from '@mui/icons-material/Delete';
-//import DeleteIcon from '@mui/icons-material/Delete';
+import DeleteIcon from '@mui/icons-material/Delete';
 //import DeleteOutlinedIcon from '@mui/icons-material/DeleteOutlined';
 import Button from '@mui/material/Button';
 //import DeleteButton from '@material-ui/icons/Delete'
+import { styled } from '@mui/material/styles';
+import Grid from '@mui/material/Grid';
+
 export const Todo = () => {
     const [inputText, setInputText] = useState('');
     const [todos, setTodos] = useState([]);
@@ -39,15 +42,22 @@ export const Todo = () => {
 };
 
 const ToDoItem = (props) => { 
-    return <div>
-    <input 
-    type = "checkbox"
-    name="text"
-    value=""
-    onChange={() => props.setIsChecked(props.text)}
-    />
-    {props.text}
-    <Button onClick={() => props.deleteTodo(props.text)}> --- </Button>
-    </div>
-};
+   return <Grid  container spacing ={0} className = "grid">
+        <Grid item xs ={0}>
+        <input 
+         type = "checkbox"
+        name="text"
+        value=""
+        onChange={() => props.setIsChecked(props.text)}
+        />
+        </Grid>
+        <Grid item xs={1}>
+         {props.text}
+         </Grid>
+        <Grid item xs={1}>
+        <Button onClick={() => props.deleteTodo(props.text)}> <DeleteIcon/> </Button>
+        </Grid>
+        </Grid>;
+    } 
+
 
