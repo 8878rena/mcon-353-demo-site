@@ -1,15 +1,25 @@
 body {
   padding: 50px;
   font-family: sans-serif;
-  border: 5px solid black;
+
   justify-content: center;
-  background-color: palevioletred;
 }
 ToDoItem.div {
   justify-content: center;
 }
 .grid {
   justify-content: center;
+  justify-items: center;
   justify-self: center;
   align-items: center;
+  background-color: skyblue;
+  border: 5px solid white;
+}
+h1 {
+  text-align: center;
+  justify-content: center;
+}
+.toCenter {
+  text-align: center;
+  justify-content: center;
 }

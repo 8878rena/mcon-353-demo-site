@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useContext} from "react";
 import "./todo.css";
 //import Icon from '@mui/material/Icon';
 //import DeleteIcon from '@mui/icons-material/Delete';
@@ -9,17 +9,19 @@ import Button from '@mui/material/Button';
 import { styled } from '@mui/material/styles';
 import Grid from '@mui/material/Grid';
 
+//in your context make a function that will let you set todos, then leave the addTOdo same with all the logic in there
+
 export const Todo = () => {
     const [inputText, setInputText] = useState('');
-    const [todos, setTodos] = useState([]);
+    const [Todo, setTodos] = useState([]);
     
     function addTodo(){
-        const newTodos = [...todos, {text: inputText, isChecked: false}];
+        const newTodos = [...Todo, {text: inputText, isChecked: false}];
         setTodos(newTodos);
     }
 
     function deleteTodo(deletedTodo){
-        setTodos(todos.filter(todo => todo.text !== deletedTodo))
+        setTodos(Todo.filter(todo => todo.text !== deletedTodo))
     }
     function setChecked(checkedTodo){
         checkedTodo.isChecked = !checkedTodo.isChecked;
@@ -27,13 +29,14 @@ export const Todo = () => {
 
 
     return(
-        <div>
+        <div className = "grid">
+            <div className= "toCenter">
         <h1>היום קצר והמלאכה מרובה</h1>
          
         <input type= "text" onChange = {(event)=> setInputText(event.target.value)} placeholder="Enter a task"/>
         <button onClick={addTodo}> Add</button>
-        
-        {todos.map((todo) =>(
+        </div>
+        {Todo.map((todo) =>(
              <ToDoItem text ={todo.text} deleteTodo ={deleteTodo}/>
         ))}
 
