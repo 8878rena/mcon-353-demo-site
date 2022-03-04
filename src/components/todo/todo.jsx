@@ -8,20 +8,21 @@ import Button from '@mui/material/Button';
 //import DeleteButton from '@material-ui/icons/Delete'
 import { styled } from '@mui/material/styles';
 import Grid from '@mui/material/Grid';
+import {Context} from '../App/App';
 
 //in your context make a function that will let you set todos, then leave the addTOdo same with all the logic in there
 
 export const Todo = () => {
     const [inputText, setInputText] = useState('');
-    const [Todo, setTodos] = useState([]);
+    const {todos, setTodos} = useContext(Context);
     
     function addTodo(){
-        const newTodos = [...Todo, {text: inputText, isChecked: false}];
+        const newTodos = [...todos, {text: inputText, isChecked: false}];
         setTodos(newTodos);
     }
 
     function deleteTodo(deletedTodo){
-        setTodos(Todo.filter(todo => todo.text !== deletedTodo))
+        setTodos(todos.filter(todo => todo.text !== deletedTodo))
     }
     function setChecked(checkedTodo){
         checkedTodo.isChecked = !checkedTodo.isChecked;
@@ -34,9 +35,9 @@ export const Todo = () => {
         <h1>היום קצר והמלאכה מרובה</h1>
          
         <input type= "text" onChange = {(event)=> setInputText(event.target.value)} placeholder="Enter a task"/>
-        <button onClick={addTodo}> Add</button>
+        <Button onClick={addTodo}> Add</Button>
         </div>
-        {Todo.map((todo) =>(
+        {todos.map((todo) =>(
              <ToDoItem text ={todo.text} deleteTodo ={deleteTodo}/>
         ))}
 
