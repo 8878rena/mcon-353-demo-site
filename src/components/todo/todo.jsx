@@ -25,6 +25,13 @@ export const Todo = () => {
         setTodos(todos.filter(todo => todo.text !== deletedTodo))
     }
     function setChecked(checkedTodo){
+        /*if (checkedTodo.isChecked){
+            checkedTodo.isChecked=false;
+        }
+        else{
+           checkedTodo.isChecked=true;
+        }
+        */
         checkedTodo.isChecked = !checkedTodo.isChecked;
     } 
 
@@ -38,7 +45,7 @@ export const Todo = () => {
         <Button onClick={addTodo}> Add</Button>
         </div>
         {todos.map((todo) =>(
-             <ToDoItem text ={todo.text} deleteTodo ={deleteTodo}/>
+             <ToDoItem todo ={todo} deleteTodo ={deleteTodo} setChecked={setChecked}/>
         ))}
 
     </div>
@@ -52,14 +59,15 @@ const ToDoItem = (props) => {
          type = "checkbox"
         name="text"
         value=""
-        onChange={() => props.setIsChecked(props.text)}
+        checked={props.todo.isChecked}
+        onChange={() => props.setChecked(props.todo)}
         />
         </Grid>
         <Grid item xs={1}>
-         {props.text}
+         {props.todo.text}
          </Grid>
         <Grid item xs={1}>
-        <Button onClick={() => props.deleteTodo(props.text)}> <DeleteIcon/> </Button>
+        <Button onClick={() => props.deleteTodo(props.todo.text)}> <DeleteIcon/> </Button>
         </Grid>
         </Grid>;
     } 
