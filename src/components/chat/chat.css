@@ -1,0 +1,38 @@
+.inputField {
+  width: 300;
+}
+
+.user {
+  text-align: left;
+  text-align: bottom;
+}
+
+.Me {
+  color: white;
+  background-color: "primary.dark";
+  align-content: left;
+  padding: 3%;
+  margin: 1%;
+}
+
+.Other {
+  color: pink;
+  background-color: white;
+  align-content: right;
+  padding: 3%;
+  margin: 1%;
+}
+
+.gridBox {
+  align-content: right;
+}
+
+.chatTitle {
+  font-size: 300;
+}
+
+.usernameField {
+  justify-content: right;
+  align-items: right;
+  justify-items: right;
+}

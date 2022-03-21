@@ -1,5 +1,6 @@
 import {Home} from '../home/home';
 import {Todo} from '../todo/todo';
+import {Chat} from '../chat/chat';
 import {Header} from '../header/header';
 import React, {useState} from "react";
 import {
@@ -23,6 +24,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />}></Route>
           <Route path="/todo" element={<Todo />}></Route>
+          <Route path="/ChatRoom" element= {<Chat/>}></Route>
         </Routes>
       </BrowserRouter>
       </Context.Provider>

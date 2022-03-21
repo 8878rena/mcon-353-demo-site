@@ -11,7 +11,7 @@ import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
 import { useNavigate } from 'react-router-dom';
 
-const pages = [{title: 'Home',path: '/'}, {title:'todo', path: '/Todo'}];
+const pages = [{title: 'Home',path: '/'}, {title:'todo', path: '/Todo'}, {title: 'ChatRoom', path: '/ChatRoom'}];
 
 export const Header = () => {
   const navigate = useNavigate();
