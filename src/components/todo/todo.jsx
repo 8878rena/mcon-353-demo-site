@@ -24,7 +24,7 @@ export const Todo = () => {
     function deleteTodo(deletedTodo){
         setTodos(todos.filter(todo => todo.text !== deletedTodo))
     }
-    function setChecked(checkedTodo){
+    //function setChecked(checkedTodo){
         /*if (checkedTodo.isChecked){
             checkedTodo.isChecked=false;
         }
@@ -32,8 +32,17 @@ export const Todo = () => {
            checkedTodo.isChecked=true;
         }
         */
-        checkedTodo.isChecked = !checkedTodo.isChecked;
-    } 
+        //checkedTodo.isChecked = !checkedTodo.isChecked;
+    //} 
+    function setChecked(checkedTodo) {
+        const newTodos = todos.map((todo) => {
+          if (todo.text === checkedTodo.text) {
+            return { ...todo, isChecked: !todo.isChecked };
+          }
+          return { ...todo };
+        });
+        setTodos(newTodos);
+      }
 
 
     return(
